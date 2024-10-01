@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="icon.svg" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <title>ultracodigo.com.br</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-repeat: no-repeat;
+            background-size: auto;
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            max-width: 1280px;
+            max-height: 100vh;
+            overflow: hidden;
+            font-size: 1.2em;
+            background-image: url("background.svg");
+            height: 100vh;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        header{
+            background-color: #5322e3cc;
+            height: 14vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        span{
+            color: #6d94ffcc;
+        }
+        main{
+            width: 100vw;
+            height: 55vh;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            display: flex;
+            flex-wrap: wrap;
+        
+          }
+          footer{
+            position: absolute;
+            bottom: 0;
+            background-color: #5322e3cc;
+            width: 100vw;
+
+          }
+          a{
+            color: #fff;
+            text-decoration: none;
+          }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><span><</span> UltraCódigo <span>></span></h1>
+    </header>
+
+    <main>
+            <h2>Lançamento do site em</h2>
+            <h2><span class="data" align="center"></span></h2>
+    </main>
+
+    <footer>
+      <p><em><a href="https://ultracodigo.com.br" target="_blank">ultracodigo</a> &copy; Todos os direitos reservados 2024</em></p>
+    </footer>
+
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+
+    <script>
+        var typed = new Typed(".data", {
+            strings : ["01 de Novembro", "@UltraCodigoWeb"],
+            typeSpeed : 100,
+            backSpeed : 100,
+            loop: true,
+        })
+    </script>
+     <script>
+        window.onload = function () {
+      document.addEventListener(
+        "contextmenu",
+        function (e) {
+          e.preventDefault();
+        },
+        false
+      );
+
+      document.addEventListener(
+        "keydown",
+        function (e) {
+          //document.onkeydown = function(e) {
+          // "I" key
+          if (e.ctrlKey && e.shiftKey && e.keyCode == 73) {
+            disabledEvent(e);
+          }
+          // "J" key
+          if (e.ctrlKey && e.shiftKey && e.keyCode == 74) {
+            disabledEvent(e);
+          }
+          // "S" key + macOS
+          if (
+            e.keyCode == 83 &&
+            (navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)
+          ) {
+            disabledEvent(e);
+          }
+          // "U" key
+          if (e.ctrlKey && e.keyCode == 85) {
+            disabledEvent(e);
+          }
+          // "F12" key
+          if (event.keyCode == 123) {
+            disabledEvent(e);
+          }
+        },
+        false
+      );
+
+      function disabledEvent(e) {
+        if (e.stopPropagation) {
+          e.stopPropagation();
+        } else if (window.event) {
+          window.event.cancelBubble = true;
+        }
+        e.preventDefault();
+        return false;
+      }
+    };
+    </script>
+
+    <script>
+      var rev = "fwd";
+      function titlebar(val) {
+      var msg = "ultracodigo.com.br";
+      var res = " ";
+      var speed = 200;
+      var pos = val;
+      msg = "" + msg + "";
+      var le = msg.length;
+      if (rev == "fwd") {
+        if (pos < le) {
+          pos = pos + 1;
+          scroll = msg.substr(0, pos);
+          document.title = scroll;
+          timer = window.setTimeout("titlebar(" + pos + ")", speed);
+        }
+      } else {
+        if (pos > 0) {
+          pos = pos - 1;
+          var ale = le - pos;
+          scrol = msg.substr(ale, le);
+          document.title = scrol;
+          timer = window.setTimeout("titlebar(" + pos + ")", speed);
+        } else {
+          rev = "fwd";
+          timer = window.setTimeout("titlebar(" + pos + ")", speed);
+        }
+      }
+    }
+    titlebar(0);
+    </script>
+</body>
+</html>
